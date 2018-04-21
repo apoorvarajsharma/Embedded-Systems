@@ -1,0 +1,16 @@
+#include<avr/io.h>   //includes the headerfile for avr inputs and outputs
+#define F_CPU 1000000 //provides the cpu frequency of 1megahz
+#include<util/delay.h> //header to include delay library
+
+
+int main(void) //main function
+{
+DDRC=0x01;    //dataDirectionRegister sets the 1stpin of port c as output pin [0x01=0b00000001 means firstpin is o/p pin
+while(1)      //runs the loop infinite times
+  {
+  PORTC=0x01; //sends high signal to the 1st pin of portc
+  _delay_ms(100); //delay of 100ms is given means led on for 100ms
+  PORTC=0x00;  //sends low signal to the 1st pin of portc to off the led 
+  _delay_ms(100); //again led is off for 100ms
+ }
+}
